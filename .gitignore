@@ -1,0 +1,16 @@
+# removes all the Rstudio related clutter
+# useful on computer - not needed for replication
+.Rproj.user/
+*.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+**/.DS_Store
+
+# ensures that data remains on computer and is not pushed to github
+data/
+_targets/
+
+# ensures any files generated while making markdown docs are not pushed
+# needed to view on computer but not needed for replication as they are regenerated
+**/*_files/*
