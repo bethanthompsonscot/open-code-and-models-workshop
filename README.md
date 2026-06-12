@@ -19,7 +19,7 @@ in a single publication-ready figure.
 
 ## Data
 
-> **We pretend that the data is confidential since many of us work with data that cannot be shared and is not included in this repository.**
+> **The data is confidential and is not included in this repository.**
 
 The `data/` folder is intentionally excluded from version control. To run the pipeline
 you must obtain `penguins.csv` separately (through the usual secure channel) and place
@@ -44,9 +44,9 @@ versions, so everyone runs the same environment.
    ```
    This installs the exact package versions recorded in `renv.lock`.
 3. **Add the data** — place `penguins.csv` in the `data/` folder (see above).
-4. **Create the data and plots folders** as these won't exist. Code example below, or do this manually.
+4. **Create the output folder** if it doesn't exist:
    ```r
-   dir.create("plots", showWarnings = FALSE)
+   dir.create("output", showWarnings = FALSE)
    ```
 
 ## Running the pipeline
@@ -66,7 +66,7 @@ tar_read(penguins_drop_df)       # inspect any intermediate target
 tar_invalidate(everything())     # force a full rebuild on next tar_make()
 ```
 
-The finished figure is written to `plots/comparison.png`.
+The finished figure is written to `output/comparison.png`.
 
 ## Project structure
 
@@ -89,7 +89,7 @@ The finished figure is written to `plots/comparison.png`.
 | `penguins`          | Reads the data                                        |
 | `penguins_drop_df`  | Cleaned data with missing-sex rows dropped            |
 | `penguins_impute_df`| Cleaned data with missing sex imputed by body mass    |
-| `figure_1`          | Side-by-side figure of the two approaches             |
+| `comparison_fig`    | Side-by-side figure of the two approaches             |
 | `comparison_file`   | The figure saved to `output/comparison.png`           |
 
 ## Requirements
@@ -105,3 +105,19 @@ dataset — was inspired by [Andrew Heiss](https://www.andrewheiss.com/), assist
 professor at Georgia State University, certified RStudio instructor, and a wonderful
 source of teaching materials on R, the tidyverse, and reproducible research. Many
 thanks for the inspiration.
+
+### Data source
+
+The penguins data comes from the
+[**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins/) R package by
+Allison Horst, Alison Hill, and Kristen Gorman:
+
+> Horst AM, Hill AP, Gorman KB (2020). *palmerpenguins: Palmer Archipelago
+> (Antarctica) penguin data.* R package version 0.1.0.
+> doi: [10.5281/zenodo.3960218](https://doi.org/10.5281/zenodo.3960218).
+
+The underlying measurements were collected by Dr. Kristen Gorman and the
+[Palmer Station Long Term Ecological Research (LTER) Program](https://pallter.marine.rutgers.edu/),
+part of the US LTER Network, and were originally published in Gorman KB, Williams TD,
+Fraser WR (2014). The data are released under a CC0 licence in accordance with the
+Palmer Station LTER Data Policy.
