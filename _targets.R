@@ -1,28 +1,36 @@
+# packages needed to run targets pipeline
 library(targets)
 library(tarchetypes)
 
-suppressPackageStartupMessages(library(brms))
-options(
-  mc.cores = 4
-)
-
 # Set target options:
+# Packages that your targets need for their tasks i.e. whatever you used to create your functions 
 tar_option_set(
-  packages = c("tidyverse") # Packages that your targets need for their tasks.
+  packages = c("tidyverse", "visNetwork", "cowplot") 
 )
 
 # Run the R scripts in the R/ folder with your custom functions:
-tar_source()
+tar_source("scripts")
 
 # Replace the target list below with your own:
 list(
+  # creates a file path
   tar_target(penguins_file, "data/penguins.csv", format = "file"),
-  tar_target(penguins, clean_penguins(penguins_file)),
+  # reads data from the file path and stores as .rds
+  # 1) look at the read_penguins function in functions
+  # 2) tar_glimpse() to see the network
+  # 3) load the data and inspect in workshop.R
+  tar_target(penguins, read_penguins(penguins_file)) 
+  # apply drop_na function for penguin sex (Bethan)
   
-  tar_target(model1_freq, make_model1_freq(penguins)),
-  tar_target(model2_freq, make_model2_freq(penguins)),
-  tar_target(model1_bayes, make_model1_bayes(penguins)),
-  tar_target(model2_bayes, make_model2_bayes(penguins)),
+  # apply impute function for penguin sex (Dan)
   
-  tar_quarto(analysis, "analysis.qmd", quiet = FALSE)
+  # create plot side by side using the two different dfs (Bethan)
+  
+  # save plot 
+  #tar_target(
+    #comparison_file,
+    #ggsave("plots/comparison.png", figure_1,
+           #width = 10, height = 5, dpi = 300),
+    #format = "file"
+  #)
 )

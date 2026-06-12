@@ -10,6 +10,7 @@
 # ensures that data remains on computer and is not pushed to github
 data/
 _targets/
+plots/
 
 # ensures any files generated while making markdown docs are not pushed
 # needed to view on computer but not needed for replication as they are regenerated
