@@ -19,7 +19,7 @@ in a single publication-ready figure.
 
 ## Data
 
-> **The data is confidential and is not included in this repository.**
+> **The data is not included in this repository as the object is to demo how to ignore data in a project.**
 
 The `data/` folder is intentionally excluded from version control. To run the pipeline
 you must obtain `penguins.csv` separately (through the usual secure channel) and place
@@ -31,6 +31,22 @@ data/penguins.csv
 
 The pipeline expects the following columns: `species`, `island`, `bill_len`,
 `bill_dep`, `flipper_len`, `body_mass`, `sex`, `year`.
+
+### Data source
+
+The penguins data comes from the
+[**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins/) R package by
+Allison Horst, Alison Hill, and Kristen Gorman:
+
+> Horst AM, Hill AP, Gorman KB (2020). *palmerpenguins: Palmer Archipelago
+> (Antarctica) penguin data.* R package version 0.1.0.
+> doi: [10.5281/zenodo.3960218](https://doi.org/10.5281/zenodo.3960218).
+
+The underlying measurements were collected by Dr. Kristen Gorman and the
+[Palmer Station Long Term Ecological Research (LTER) Program](https://pallter.marine.rutgers.edu/),
+part of the US LTER Network, and were originally published in Gorman KB, Williams TD,
+Fraser WR (2014). The data are released under a CC0 licence in accordance with the
+Palmer Station LTER Data Policy.
 
 ## Setup
 
@@ -106,18 +122,4 @@ professor at Georgia State University, certified RStudio instructor, and a wonde
 source of teaching materials on R, the tidyverse, and reproducible research. Many
 thanks for the inspiration.
 
-### Data source
 
-The penguins data comes from the
-[**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins/) R package by
-Allison Horst, Alison Hill, and Kristen Gorman:
-
-> Horst AM, Hill AP, Gorman KB (2020). *palmerpenguins: Palmer Archipelago
-> (Antarctica) penguin data.* R package version 0.1.0.
-> doi: [10.5281/zenodo.3960218](https://doi.org/10.5281/zenodo.3960218).
-
-The underlying measurements were collected by Dr. Kristen Gorman and the
-[Palmer Station Long Term Ecological Research (LTER) Program](https://pallter.marine.rutgers.edu/),
-part of the US LTER Network, and were originally published in Gorman KB, Williams TD,
-Fraser WR (2014). The data are released under a CC0 licence in accordance with the
-Palmer Station LTER Data Policy.
